@@ -25,7 +25,7 @@ public class AuthController {
     public String login(@RequestBody LoginRequest loginRequest) {
 
         // Load user and generate JWT token
-        final UserDetails userDetails = userService.loadUserByUsername(loginRequest.getUsername());
+        final UserDetails userDetails = userService.loadUserByUsername(loginRequest.username());
 
         return jwtUtil.generateToken(userDetails.getUsername());
     }
