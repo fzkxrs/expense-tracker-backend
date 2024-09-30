@@ -34,7 +34,6 @@ public class UserService implements UserDetailsService {
         if (userRepository.findByUsername(username).isPresent()) {
             throw new RuntimeException("Username is already taken.");
         }
-
         // Create new user and encode the password
         User user = new User();
         user.setUsername(username);
