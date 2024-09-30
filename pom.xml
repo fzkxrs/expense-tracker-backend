@@ -42,11 +42,10 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-		<!-- H2 Database (For testing, you can replace this with MySQL or PostgreSQL) -->
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.2</version>
 		</dependency>
 
 		<!-- Lombok (Optional, for reducing boilerplate code) -->

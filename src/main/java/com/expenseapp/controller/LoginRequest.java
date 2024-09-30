@@ -1,4 +1,4 @@
-package com.expenseapp.dto;
+package com.expenseapp.controller;
 
 public class LoginRequest {
     public LoginRequest() {
