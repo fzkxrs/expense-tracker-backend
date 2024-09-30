@@ -1,6 +1,7 @@
 package com.expenseapp.controller;
 
 public class LoginRequest {
+
     public LoginRequest() {
     }
 
@@ -8,4 +9,12 @@ public class LoginRequest {
     private String password;
 
     // Getters and setters
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

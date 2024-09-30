@@ -2,7 +2,11 @@ package com.expenseapp.controller;
 
 import com.expenseapp.model.User;
 import com.expenseapp.service.UserService;
+import com.expenseapp.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,11 +16,18 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
+
+
     @PostMapping("/auth/login")
     public String login(@RequestBody LoginRequest loginRequest) {
-        // This is where you would typically authenticate the user and generate a token.
-        // For simplicity, we're returning a mock token.
-        return "Mock JWT token";
+
+        // Load user and generate JWT token
+        final UserDetails userDetails = userService.loadUserByUsername(loginRequest.getUsername());
+
+        return jwtUtil.generateToken(userDetails.getUsername());
     }
 
     @PostMapping("/auth/register")
