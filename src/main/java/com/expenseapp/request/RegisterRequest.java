@@ -1,4 +1,4 @@
-package com.expenseapp.controller;
+package com.expenseapp.request;
 
 import lombok.Getter;
 import lombok.Setter;
